@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class CurrencyConvertor extends StatelessWidget {
+class CurrencyConverter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Currency Convertor",
+      title: "Currency Converter",
       home: HomePage(),
     );
   }
@@ -26,8 +26,8 @@ class _HomePageState extends State<HomePage> {
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1280px-Flag_of_Europe.svg.png';
   String _leftText = 'RON';
   String _rightText = 'EUR';
-  String _eurToRon = '4.93';
-  String _ronToEur = '0.20';
+  double _eurToRon = 4.93;
+  double _ronToEur = 0.20;
   String? _reversedVariable;
   bool _ron = true;
   double? _doubleValue;
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xff000099),
         title: Text(
-          'CURRENCY CONVERTOR',
+          'CURRENCY CONVERTER',
           style: TextStyle(
             color: Colors.white,
             fontSize: 22,
@@ -116,9 +116,9 @@ class _HomePageState extends State<HomePage> {
                                 if (regex.hasMatch(_controller.value.text)) {
                                   _message = '';
                                   if (_ron == true) {
-                                    _doubleValue = double.parse(_controller.value.text) * double.parse(_eurToRon);
+                                    _doubleValue = double.parse(_controller.value.text) * _eurToRon;
                                   } else {
-                                    _doubleValue = double.parse(_controller.value.text) * double.parse(_ronToEur);
+                                    _doubleValue = double.parse(_controller.value.text) * _ronToEur;
                                   }
                                   _valueToConvert = _doubleValue!.toStringAsFixed(2);
                                 } else {
@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: <Widget>[
                 Text(
-                  "1 EUR = " + _eurToRon + " RON",
+                  "1 EUR = $_eurToRon RON",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -238,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Text(
-                  "1 RON = " + _ronToEur + " EUR",
+                  "1 RON = $_ronToEur EUR",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
