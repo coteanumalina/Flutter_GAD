@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class NumberShapes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Number Shapes',
       home: HomePage(),
     );
@@ -14,7 +14,7 @@ class NumberShapes extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   bool _isCubed = false;
   String? _message;
 
-  _showCupertinoDialog() {
+  void _showCupertinoDialog() {
     showDialog(
       context: context,
       builder: (_) => CupertinoAlertDialog(
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text(
+        title: const Text(
           'NUMBER SHAPES',
           style: TextStyle(
             color: Colors.white,
@@ -55,8 +55,8 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 80.0, bottom: 40.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 80.0, bottom: 40.0),
             child: Text(
               'Please input a number to see if it is square or triangular',
               textAlign: TextAlign.center,
@@ -78,12 +78,12 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     width: 200,
                     child: TextField(
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black45,
                         fontSize: 19,
                       ),
                       textAlign: TextAlign.center,
-                      keyboardType: TextInputType.numberWithOptions(),
+                      keyboardType: const TextInputType.numberWithOptions(),
                       inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                       controller: _controller,
                     ),
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Align(
             alignment: Alignment.topRight,
             child: IconButton(
@@ -124,14 +124,14 @@ class _HomePageState extends State<HomePage> {
                   }
                 });
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.check_circle,
                 color: Colors.green,
               ),
               iconSize: 60,
             ),
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
         ],
       ),
     );

@@ -1,13 +1,13 @@
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 import 'package:flutter/services.dart';
 
 class GuessNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Guess the number',
       home: HomePage(),
     );
@@ -15,7 +15,7 @@ class GuessNumber extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -29,11 +29,11 @@ class _HomePageState extends State<HomePage> {
   int? _rightNumber;
   bool _isGuess = true;
 
-  _showCupertinoDialog() {
-    showDialog(
+  void _showCupertinoDialog() {
+    showDialog<void>(
       context: context,
       builder: (_) => CupertinoAlertDialog(
-        title: Text('You guessed right'),
+        title: const Text('You guessed right'),
         content: Text('It was $_rightNumber'),
         actions: <Widget>[
           Row(
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               ElevatedButton(
-                child: Text('Try again'),
+                child: const Text('Try again'),
                 onPressed: () {
                   Navigator.of(context).pop();
                   setState(() {
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(width: 20.0),
               ElevatedButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                   setState(() {
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           'GUESS THE NUMBER',
           style: TextStyle(
             color: Colors.orangeAccent,
@@ -100,8 +100,8 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 80.0, bottom: 40.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 80.0, bottom: 40.0),
             child: Text(
               'I\'m thinking of a number between 1 and 100.',
               textAlign: TextAlign.center,
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Text(
+          const Text(
             'It\'s your turn to guess my number!',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -123,18 +123,18 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 60.0),
           Text(
-            (_messageTriedNumber == null ? '' : _messageTriedNumber)!,
+            _messageTriedNumber ?? '',
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 30,
               fontWeight: FontWeight.w700,
             ),
           ),
           Text(
-            (_messageExactLowerHigher == null ? '' : _messageExactLowerHigher)!,
+            _messageExactLowerHigher ?? '',
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 40,
               fontWeight: FontWeight.w600,
@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
               shadowColor: Colors.grey,
               child: Column(
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Try a number!',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -160,12 +160,12 @@ class _HomePageState extends State<HomePage> {
                     width: 200,
                     child: TextField(
                       enabled: _isGuess,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black45,
                         fontSize: 19,
                       ),
                       textAlign: TextAlign.center,
-                      keyboardType: TextInputType.numberWithOptions(),
+                      keyboardType: const TextInputType.numberWithOptions(),
                       inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                       controller: _controller,
                     ),
@@ -202,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Text(
                       _isGuess == true ? 'GUESS' : 'RESET',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
                       ),

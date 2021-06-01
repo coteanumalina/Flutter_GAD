@@ -5,15 +5,15 @@ import 'package:flutter/services.dart';
 class CurrencyConverter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Currency Converter",
+    return const MaterialApp(
+      title: 'Currency Converter',
       home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -26,13 +26,13 @@ class _HomePageState extends State<HomePage> {
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1280px-Flag_of_Europe.svg.png';
   String _leftText = 'RON';
   String _rightText = 'EUR';
-  double _eurToRon = 4.93;
-  double _ronToEur = 0.20;
+  final double _eurToRon = 4.93;
+  final double _ronToEur = 0.20;
   String? _reversedVariable;
   bool _ron = true;
   double? _doubleValue;
   String? _valueToConvert;
-  RegExp regex = new RegExp(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$');
+  RegExp regex = RegExp(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$');
   String _message = '';
 
   @override
@@ -40,8 +40,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Color(0xff000099),
-        title: Text(
+        backgroundColor: const Color(0xff000099),
+        title: const Text(
           'CURRENCY CONVERTER',
           style: TextStyle(
             color: Colors.white,
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(top: 20.0),
                       child: Text(
                         _leftText,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
@@ -96,36 +96,36 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         child: TextField(
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 20,
                           ),
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             hintText: 'Value in ' + _leftText,
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Colors.black45,
                               fontSize: 18,
                             ),
                           ),
                           controller: _controller,
-                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                          keyboardType: const TextInputType.numberWithOptions(decimal: true),
                           onChanged: (String value) {
                             setState(() {
                               if (value.isNotEmpty) {
                                 if (regex.hasMatch(_controller.value.text)) {
                                   _message = '';
                                   if (_ron == true) {
-                                    _doubleValue = double.parse(_controller.value.text) * _eurToRon;
-                                  } else {
                                     _doubleValue = double.parse(_controller.value.text) * _ronToEur;
+                                  } else {
+                                    _doubleValue = double.parse(_controller.value.text) * _eurToRon;
                                   }
                                   _valueToConvert = _doubleValue!.toStringAsFixed(2);
                                 } else {
                                   _message = 'Please enter a valid number';
                                 }
                               } else {
-                                _valueToConvert = "Value in " + _rightText;
+                                _valueToConvert = 'Value in ' + _rightText;
                                 _message = '';
                               }
                             });
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(top: 20.0),
                       child: Text(
                         _rightText,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
@@ -196,9 +196,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Center(
                           child: Text(
-                            (_valueToConvert == null ? "Value in " + _rightText : _valueToConvert)!,
+                            _valueToConvert ?? 'Value in ' + _rightText,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black45,
                               fontSize: 18,
                             ),
@@ -216,31 +216,31 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               _message,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.red,
                 fontSize: 22,
                 fontWeight: FontWeight.w700,
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
             child: Column(
               children: <Widget>[
                 Text(
-                  "1 EUR = $_eurToRon RON",
+                  '1 EUR = $_eurToRon RON',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 19,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
-                  "1 RON = $_ronToEur EUR",
+                  '1 RON = $_ronToEur EUR',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 19,
                     fontWeight: FontWeight.w700,
