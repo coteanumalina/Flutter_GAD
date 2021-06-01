@@ -9,3 +9,15 @@ GUESS THE NUMBER
 NUMBER SHAPES
 
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2021-05-25 at 125824](https://user-images.githubusercontent.com/84351845/119484118-5e346680-bd5e-11eb-949d-598ccf616168.jpg) ![Simulator Screen Shot - iPhone 12 Pro Max - 2021-05-25 at 125858](https://user-images.githubusercontent.com/84351845/119484182-6d1b1900-bd5e-11eb-961b-e0c6ad50bfbd.jpg)
+
+BASIC PHRASES 
+
+![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-01 at 123906](https://user-images.githubusercontent.com/84351845/120304400-6baa9d00-c2d8-11eb-9af5-c4fb646ee206.jpg) ![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-01 at 123944](https://user-images.githubusercontent.com/84351845/120304433-736a4180-c2d8-11eb-8c24-ffd456d3f8c8.jpg)
+
+
+TIC TAC TOE
+
+![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-01 at 123816](https://user-images.githubusercontent.com/84351845/120304490-80873080-c2d8-11eb-8ada-39e838da9d1f.jpg) ![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-01 at 123826](https://user-images.githubusercontent.com/84351845/120304507-84b34e00-c2d8-11eb-94a2-6028213941c9.jpg)
+
+
+
