@@ -25,8 +25,7 @@ MOVIES
 
 WEATHER
 
-![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-26 at 204431](https://user-images.githubusercontent.com/84351845/123521617-7b8f8400-d6c0-11eb-8402-12a023ff9c8c.jpg)
-
+![rsz_1simulator_screen_shot_-_iphone_12_pro_max_-_2021-06-27_at_134910](https://user-images.githubusercontent.com/84351845/123541741-be983880-d74e-11eb-81f0-a1870f43a91f.png)
 
 
 
