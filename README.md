@@ -19,5 +19,14 @@ TIC TAC TOE
 
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-01 at 123816](https://user-images.githubusercontent.com/84351845/120304490-80873080-c2d8-11eb-8ada-39e838da9d1f.jpg) ![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-01 at 123826](https://user-images.githubusercontent.com/84351845/120304507-84b34e00-c2d8-11eb-94a2-6028213941c9.jpg)
 
+MOVIES
+
+![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-26 at 204554](https://user-images.githubusercontent.com/84351845/123521597-5a2e9800-d6c0-11eb-845e-ec67d360ce17.jpg) ![Simulator Screen Shot - iPhone 12 Pro Max - 2021-06-26 at 204620](https://user-images.githubusercontent.com/84351845/123521604-6581c380-d6c0-11eb-95d7-0971f0861b60.jpg)
+
+WEATHER
+
+![rsz_1simulator_screen_shot_-_iphone_12_pro_max_-_2021-06-27_at_134910](https://user-images.githubusercontent.com/84351845/123541741-be983880-d74e-11eb-81f0-a1870f43a91f.png)
+
+
 
 
