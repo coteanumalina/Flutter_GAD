@@ -63,8 +63,8 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             city = body['timezone'].split('/')[1];
             imageUrl = current['weather'][0]['icon'];
-            temperature = current['temp'];
-            feelsLike = current['feels_like'];
+            temperature = current['temp'] - 272;
+            feelsLike = current['feels_like'] - 272;
             pressure = current['pressure'];
             humidity = current['humidity'];
             visibility = current['visibility'];
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Builder(
           builder: (BuildContext context) {
-            if (imageUrl == 'null' || imageUrl == null){
+            if (imageUrl == 'null' || imageUrl == null) {
               return const CircularProgressIndicator(backgroundColor: Colors.white);
             }
             return Column(
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Text(
-                  '$temperature °F',
+                  '${temperature!.round()} °C',
                   style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),
                 Text(
-                  'Feels like: $feelsLike °F',
+                  'Feels like: ${feelsLike!.round()} °C',
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
@@ -152,7 +152,6 @@ class _HomePageState extends State<HomePage> {
               ],
             );
           },
-
         ),
       ),
     );
