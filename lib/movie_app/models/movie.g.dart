@@ -18,8 +18,6 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
   Iterable<Object?> serialize(Serializers serializers, Movie object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
       'url',
       serializers.serialize(object.url, specifiedType: const FullType(String)),
       'title',
@@ -47,7 +45,13 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       serializers.serialize(object.image,
           specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -64,7 +68,7 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'url':
           result.url = serializers.deserialize(value,
@@ -113,7 +117,7 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
 
 class _$Movie extends Movie {
   @override
-  final int id;
+  final int? id;
   @override
   final String url;
   @override
@@ -137,7 +141,7 @@ class _$Movie extends Movie {
       (new MovieBuilder()..update(updates)).build();
 
   _$Movie._(
-      {required this.id,
+      {this.id,
       required this.url,
       required this.title,
       required this.year,
@@ -148,7 +152,6 @@ class _$Movie extends Movie {
       required this.language,
       required this.image})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'Movie', 'id');
     BuiltValueNullFieldError.checkNotNull(url, 'Movie', 'url');
     BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title');
     BuiltValueNullFieldError.checkNotNull(year, 'Movie', 'year');
@@ -303,7 +306,7 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
     try {
       _$result = _$v ??
           new _$Movie._(
-              id: BuiltValueNullFieldError.checkNotNull(id, 'Movie', 'id'),
+              id: id,
               url: BuiltValueNullFieldError.checkNotNull(url, 'Movie', 'url'),
               title: BuiltValueNullFieldError.checkNotNull(
                   title, 'Movie', 'title'),

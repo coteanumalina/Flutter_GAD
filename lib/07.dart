@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
           'lat': '${coordinates[0]}',
           'lon': '${coordinates[1]}'
         });
+
         get(url).then((Response response) {
           final Map<String, dynamic> body = jsonDecode(response.body) as Map<String, dynamic>;
           final Map<String, dynamic> current = body['current'];

@@ -4,7 +4,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:fluttercourse/movie.dart';
+import 'package:fluttercourse/movie_app/models/movie.dart';
 
 class Movies extends StatelessWidget {
   const Movies({Key? key}) : super(key: key);
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
       final Map<String, dynamic> body = jsonDecode(response.body) as Map<String, dynamic>;
       final Map<String, dynamic> data = body['data'] as Map<String, dynamic>;
       final List<dynamic> movies = data['movies'] as List<dynamic>;
-
+      print(movies);
       setState(() {
         for (dynamic m in movies) {
           listOfMovies.add(Movie.fromJson(m));
