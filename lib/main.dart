@@ -7,7 +7,9 @@ import 'package:fluttercourse/movie_app/models/app_state.dart';
 import 'package:fluttercourse/movie_app/presentation/home_page.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_epics/redux_epics.dart';
 
+import 'epics/epics.dart';
 import 'movie_app/data/movie_api.dart';
 import 'movie_app/presentation/movie_details.dart';
 import 'movie_app/reducer/reducer.dart';
@@ -16,11 +18,13 @@ void main() {
   const String apiUrl = 'https://yts.mx/api/v2';
   final Client client = Client();
   final MovieApi moviesApi = MovieApi(apiUrl: apiUrl, client: client);
-  final AppMiddleware appMiddleware = AppMiddleware(movieApi: moviesApi);
+  final AppEpics epic = AppEpics(moviesApi);
   final Store<AppState> store = Store<AppState>(
     reducer,
     initialState: AppState(),
-    middleware: appMiddleware.middleware,
+    middleware:  <Middleware<AppState>>[
+      EpicMiddleware<AppState>(epic.epics)
+    ],
   );
   store.dispatch(GetMovies(store.state.page));
   runApp(YtsApp(store: store));
